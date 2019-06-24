@@ -1,0 +1,51 @@
+<%- | Stdlib::Fqdn $domain,
+      Bind::Zone::Type $zone_type,
+      Bind::Zone::Class $zone_class,
+      Stdlib::Absolutepath $file,
+      Optional[Array[Bind::Address_match]] $allow_transfer = undef,
+      Optional[Array[Bind::Address_match]] $also_notify = undef,
+      Optional[Stdlib::Absolutepath]       $journal = undef,
+      Optional[Array[String]]              $masters = undef,
+      Optional[String]                     $notify = undef,
+      Optional[Array[String]]              $update_policy = undef
+| -%>
+zone "<%= $domain %>" <%= $zone_class %> {
+    type <%= $zone_type %>;
+    <%- unless $file =~ Undef { -%>
+    file "<%= $file %>";
+    <%- } -%>
+    <%- unless $journal =~ Undef { -%>
+    journal "<%= $journal %>";
+    <%- } -%>
+    <%- unless $allow_transfer =~ Undef { -%>
+    allow-transfer {
+        <%- [$allow_transfer].flatten.each |$element| { -%>
+        <%= $element %>;
+        <%- } -%>
+    };
+    <%- } -%>
+    <%- unless $also_notify =~ Undef { -%>
+    also-notify {
+        <%- [$also_notify].flatten.each |$element| { -%>
+        <%= $element %>;
+        <%- } -%>
+    };
+    <%- } -%>
+    <%- unless $masters =~ Undef { -%>
+    masters {
+        <%- [$masters].flatten.each |$element| { -%>
+        <%= $element %>;
+        <%- } -%>
+    };
+    <%- } -%>
+    <%- unless $notify =~ Undef { -%>
+        notify <%= $notify %>;
+    <%- } -%>
+    <%- unless $update_policy =~ Undef { -%>
+    update-policy {
+        <%- [$update_policy].flatten.each |$element| { -%>
+        <%= $element %>;
+        <%- } -%>
+    };
+    <%- } -%>
+};

@@ -1,0 +1,34 @@
+---
+bind::supported: true
+bind::package_name: 'bind9'
+bind::service_name: 'bind9'
+
+bind::config_dir: '/etc/bind'
+bind::var_dir: '/var/lib/bind'
+bind::bind_user: 'bind'
+bind::bind_group: 'bind'
+
+# Config
+bind::validate_config: true
+bind::config::validate_cmd: '/usr/sbin/named-checkconf'
+
+# Zones
+bind::zone::validate: true
+bind::zone::validate_cmd: '/usr/sbin/named-checkzone'
+
+bind::nsupdate_package: 'dnsutils'
+#Debian Default Options
+bind::auth_nxdomain: 'no'
+bind::directory: '/var/cache/bind'
+bind::dnssec_validation: 'auto'
+bind::listen_on_v6: [ 'any' ]
+
+bind::defaults::namedconf: '/etc/bind/named.conf'
+bind::defaults::logdir: '/var/log/bind'
+bind::defaults::default_zones_include: '/etc/bind/named.conf.default-zones'
+bind::defaults::isc_bind_keys: '/etc/bind/bind.keys'
+
+bind::defaults::chroot_dir: '/var/bind9/chroot'
+bind::defaults::chroot_class: bind::chroot::manual
+
+bind::updater::keydir: '/etc/bind/keys'

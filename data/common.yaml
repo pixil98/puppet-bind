@@ -1,0 +1,22 @@
+---
+bind::supported: false
+bind::package_manage: true
+bind::package_ensure: present
+
+#Config
+bind::validate_config: false
+
+#Zones
+bind::zone::validate_zone: false
+
+# Original values
+bind::defaults::chroot_supported: false
+bind::defaults::chroot_class: ''
+bind::defaults::random_device: '/dev/random'
+
+bind::orig::dnssec: true
+bind::orig::filter_ipv6: false
+bind::orig::auth_nxdomain: false
+bind::orig::include_local: false
+
+bind::orig::updater::keydir: '/etc/nsupdate-keys'

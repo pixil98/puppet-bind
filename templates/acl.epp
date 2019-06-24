@@ -1,0 +1,8 @@
+<%- | String $acl_name,
+      Array[Bind::Address_match] $address_match_list
+| -%>
+acl <%= $acl_name %> {
+    <%- [$address_match_list].flatten.each |$address| { -%>
+    <%= $address %>;
+    <%- } -%>
+};

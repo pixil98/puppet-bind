@@ -1,0 +1,8 @@
+<%- | String $key_name,
+      Bind::Key::Algorithm $algorithm,
+      String $secret
+| -%>
+key <%= $key_name %> {
+    algorithm <%= $algorithm %>;
+    secret "<%= $secret %>";
+};

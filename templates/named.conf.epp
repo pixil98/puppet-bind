@@ -1,0 +1,10 @@
+// named.conf: Managed by Puppet.
+//
+// This is the primary configuration file for the BIND DNS server named.
+
+include "<%= $bind::config_dir %>/named.conf.acls";
+include "<%= $bind::config_dir %>/named.conf.keys";
+include "<%= $bind::config_dir %>/named.conf.options";
+//include "<%= $bind::config_dir %>/named.conf.local";
+include "<%= $bind::config_dir %>/named.conf.zones";
+include "<%= $bind::config_dir %>/named.conf.default-zones";

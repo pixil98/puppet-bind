@@ -1,0 +1,79 @@
+// named.conf.options: Managed by Puppet.
+
+// This needs to be here in order for validation to work
+//include "<%= $bind::config_dir %>/named.conf.acls";
+
+options {
+    <%- unless $bind::allow_recursion =~ Undef { -%>
+    allow-recursion {
+        <%- [$bind::allow_recursion].flatten.each |$element| { -%>
+        <%= $element %>;
+        <%- } -%>
+    };
+    <%- } -%>
+    <%- unless $bind::allow_transfer =~ Undef { -%>
+    allow-transfer {
+        <%- [$bind::allow_transfer].flatten.each |$element| { -%>
+        <%= $element %>;
+        <%- } -%>
+    };
+    <%- } -%>
+    <%- unless $bind::auth_nxdomain =~ Undef { -%>
+    auth-nxdomain <%= $bind::auth_nxdomain %>;
+    <%- } -%>
+    <%- unless $bind::dnssec_validation =~ Undef { -%>
+    dnssec-validation <%= $bind::dnssec_validation %>;
+    <%- } -%>
+    <%- unless $bind::directory =~ Undef { -%>
+    directory "<%= $bind::directory %>";
+    <%- } -%>
+    <%- unless $bind::empty_zones_enable =~ Undef { -%>
+    empty-zones-enable <%= $bind::empty_zones_enable %>;
+    <%- } -%>
+    <%- unless $bind::forwarders =~ Undef { -%>
+    forwarders {
+        <%- [$bind::forwarders].flatten.each |$element| { -%>
+        <%= $element %>;
+        <%- } -%>
+    };
+    <%- } -%>
+    <%- unless $bind::key_directory =~ Undef { -%>
+    key-directory "<%= $bind::key_directory %>";
+    <%- } -%>
+    <%- unless $bind::listen_on =~ Undef { -%>
+    listen-on {
+        <%- [$bind::listen_on].flatten.each |$element| { -%>
+        <%= $element %>;
+        <%- } -%>
+    };
+    <%- } -%>
+    <%- unless $bind::listen_on_v6 =~ Undef { -%>
+    listen-on-v6 {
+        <%- [$bind::listen_on_v6].flatten.each |$element| { -%>
+        <%= $element %>;
+        <%- } -%>
+    };
+    <%- } -%>
+    <%- unless $bind::rate_limit =~ Undef { -%>
+    rate-limit {
+        <%- $bind::rate_limit.keys.sort.each |$key| { -%>
+        <%- if $bind::rate_limit[$key] =~ Array { -%>
+        <%= $key %> {
+            <%- [$bind::rate_limit[$key]].flatten.each |$element| { -%>
+            <%= $element %>;
+            <%- } -%>
+        };
+        <%- } else { -%>
+        <%= $key %> <%= $bind::rate_limit[$key] %>;
+        <%- } -%>
+        <%- } -%>
+    };
+    <%- } -%>
+    <%- unless $bind::version =~ Undef { -%>
+    <%- if $bind::version == false { -%>
+    version none;
+    <%- } elsif $bind::version =~ String { -%>
+    version "<%= $bind::version %>";
+    <%- } -%>
+    <%- } -%>
+};
