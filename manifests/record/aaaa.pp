@@ -14,8 +14,8 @@ define bind::record::aaaa (
   }
 
   concat::fragment { "bind-zone-record-aaaa-${title}":
-    order    => '35',
-    target   => "bind-zone-${domain}",
-    condtent => epp('bind/record/aaaa.epp', $record_template_params),
+    order   => '35',
+    target  => "bind-zone-${domain}",
+    content => epp('bind/record/aaaa.epp', $record_template_params),
   }
 }
