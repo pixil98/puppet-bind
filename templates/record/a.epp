@@ -1,0 +1,7 @@
+<%- |
+  Stdlib::String            $record_name,
+  Optional[Stdlib::String]  $ttl = undef,
+  Bind::Zone::Class         $class = 'IN',
+  Stdlib::IP::Address::V4   $ip_address
+| -%>
+<%= $record_name %> <%= $ttl %> <%= $class %> <%= $ip_address %>
