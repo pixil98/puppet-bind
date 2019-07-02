@@ -1,7 +1,7 @@
 <%- |
-  String                  $record_name,
-  Optional[String]        $ttl = undef,
-  Bind::Zone::Class       $record_class = 'IN',
-  Stdlib::IP::Address::V4 $ip_address
+  String                    $record_name,
+  Optional[Bind::Zone::Ttl] $ttl = undef,
+  Bind::Zone::Class         $record_class = 'IN',
+  Stdlib::IP::Address::V4   $ip_address
 | -%>
 <%= $record_name %> <%= $ttl %> <%= $record_class %> A <%= $ip_address %>

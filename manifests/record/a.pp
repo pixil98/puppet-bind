@@ -1,9 +1,9 @@
 define bind::record::a (
-  Stdlib::Fqdn             $domain,
-  String                   $record_name,
-  Optional[String]         $ttl = undef,
-  Bind::Zone::Class        $class = 'IN',
-  Stdlib::IP::Address::V4  $ip_address,
+  Stdlib::Fqdn              $domain,
+  String                    $record_name,
+  Optional[Bind::Zone::Ttl] $ttl = undef,
+  Bind::Zone::Class         $class = 'IN',
+  Stdlib::IP::Address::V4   $ip_address,
 ) {
 
   $record_template_params = {
