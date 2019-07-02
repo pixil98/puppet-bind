@@ -1,9 +1,9 @@
-define bind::record::a (
+define bind::record::aaaa (
   Stdlib::Fqdn             $domain,
   String                   $record_name,
   Optional[String]         $ttl = undef,
   Bind::Zone::Class        $class = 'IN',
-  Stdlib::IP::Address::V4  $ip_address,
+  Stdlib::IP::Address::V6  $ip_address,
 ) {
 
   $record_template_params = {
@@ -13,8 +13,8 @@ define bind::record::a (
     ip_address   => $ip_address
   }
 
-  concat::fragment { "bind-zone-record-a-${title}":
-    order    => '30',
+  concat::fragment { "bind-zone-record-aaaa-${title}":
+    order    => '35',
     target   => "bind-zone-${domain}",
     condtent => epp('bind/record/a.epp', $record_template_params),
   }
