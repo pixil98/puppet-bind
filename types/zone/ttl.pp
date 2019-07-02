@@ -1,1 +1,1 @@
-type Bind::Zone::Ttl = Enum[Integer, Regex[/^(\d+[sSmMhHdDwW])+/]]
+type Bind::Zone::Ttl = Variant[Integer, Regex[/^(\d+[sSmMhHdDwW])+/]]

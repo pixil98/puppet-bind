@@ -4,7 +4,7 @@ define bind::zone (
   Bind::Zone::Class                       $class = 'IN',
   Boolean                                 $validate = lookup('bind::zone::validate'),
   Optional[Stdlib::Filesource]            $source = undef,
-  Optional[Bind::Zone::Ttl]                        $ttl = undef,
+  Optional[Bind::Zone::Ttl]               $ttl = undef,
   # Zone options
   Optional[Array[Bind::Address_match]]    $allow_transfer = undef,
   Optional[Array[Bind::Address_match]]    $also_notify = undef,
