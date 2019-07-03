@@ -104,7 +104,7 @@ define bind::zone (
       concat::fragment { "bind-zone-${domain}-origin":
         order   => '1',
         target  => "bind-zone-${domain}",
-        content => "\$ORIGIN ${domain}\n",
+        content => "\$ORIGIN ${domain}.\n",
       }
       if ($ttl !~ Undef) {
         concat::fragment { "bind-zone-${domain}-ttl":

@@ -1,10 +1,10 @@
 {
-  "name": "pixil-bind",
+  "name": "pixil98-bind",
   "version": "0.1.0",
   "author": "Aaron Reisman",
   "summary": "Installs, configures, and manages ISC Bind",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/pixil98/puppet-bind",
   "dependencies": [
     { "name":"puppetlabs/stdlib","version_requirement":">= 5.2.0 < 5.3.0" }
   ],

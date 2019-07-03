@@ -1,0 +1,18 @@
+<%- |
+  Bind::Zone::Class         $record_class = 'IN',
+  Stdlib::Fqdn              $name_server,
+  String                    $email,
+  Integer                   $serial,
+  Bind::Zone::Ttl           $refresh,
+  Bind::Zone::Ttl           $retry,
+  Bind::Zone::Ttl           $expiry,
+  Bind::Zone::Ttl           $nxdomainttl,
+  Optional[Bind::Zone::Ttl] $ttl = undef,
+| -%>
+@ <%= $ttl %> <%= $record_class %> SOA <%= $email %> <%= $name_server %> (
+    <%= $serial %>
+    <%= $refresh %>
+    <%= $retry %>
+    <%= $expiry %>
+    <%= $nxdomainttl %>
+)
