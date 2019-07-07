@@ -14,7 +14,7 @@ define bind::record::ns (
   }
 
   concat::fragment { "bind-zone-${domain}-ns-${title}":
-    order   => '10',
+    order   => '20',
     target  => "bind-zone-${domain}",
     content => epp('bind/record/ns.epp', $record_template_params),
   }
