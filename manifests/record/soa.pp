@@ -5,7 +5,7 @@ define bind::record::soa (
   Integer                   $serial,
   Bind::Zone::Ttl           $refresh,
   Bind::Zone::Ttl           $retry,
-  Bind::Zone::Ttl           $expiry,
+  Bind::Zone::Ttl           $expire,
   Bind::Zone::Ttl           $nxdomainttl,
   Bind::Zone::Class         $class = 'IN',
   Optional[Bind::Zone::Ttl] $ttl = undef,
@@ -22,7 +22,7 @@ define bind::record::soa (
     serial       => $serial,
     refresh      => $refresh,
     retry        => $retry,
-    expiry       => $expiry,
+    expire       => $expire,
     nxdomainttl  => $nxdomainttl,
     ttl          => $ttl,
   }

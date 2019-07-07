@@ -5,7 +5,7 @@
   Integer                   $serial,
   Bind::Zone::Ttl           $refresh,
   Bind::Zone::Ttl           $retry,
-  Bind::Zone::Ttl           $expiry,
+  Bind::Zone::Ttl           $expire,
   Bind::Zone::Ttl           $nxdomainttl,
   Optional[Bind::Zone::Ttl] $ttl = undef,
 | -%>
@@ -13,6 +13,6 @@
     <%= $serial %>
     <%= $refresh %>
     <%= $retry %>
-    <%= $expiry %>
+    <%= $expire %>
     <%= $nxdomainttl %>
 )
