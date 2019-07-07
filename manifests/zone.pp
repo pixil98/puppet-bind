@@ -102,13 +102,13 @@ define bind::zone (
         validate_cmd => $validate_cmd,
       }
       concat::fragment { "bind-zone-${domain}-origin":
-        order   => '1',
+        order   => '01',
         target  => "bind-zone-${domain}",
         content => "\$ORIGIN ${domain}.\n",
       }
       if ($ttl !~ Undef) {
         concat::fragment { "bind-zone-${domain}-ttl":
-          order   => '2',
+          order   => '02',
           target  => "bind-zone-${domain}",
           content => "\$TTL ${ttl}\n",
         }
