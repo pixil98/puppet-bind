@@ -9,7 +9,7 @@
   Bind::Zone::Ttl           $nxdomainttl,
   Optional[Bind::Zone::Ttl] $ttl = undef,
 | -%>
-@ <%= $ttl %> <%= $record_class %> SOA <%= $email %> <%= $name_server %> (
+@      <%= $ttl %> <%= $record_class %> SOA <%= $name_server %>. <%= $email %>. (
     <%= $serial %>
     <%= $refresh %>
     <%= $retry %>

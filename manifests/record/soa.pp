@@ -14,12 +14,11 @@ define bind::record::soa (
   if !is_email_address($email) {
     fail("Invalid email address: ${email}")
   }
-  $dotemail = "${regsubst($email, '@', '.')}."
 
   $record_template_params = {
     record_class => $class,
     name_server  => $name_server,
-    email        => $dotemail,
+    email        => regsubst($email, '@', '.'),
     serial       => $serial,
     refresh      => $refresh,
     retry        => $retry,
