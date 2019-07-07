@@ -16,6 +16,6 @@ define bind::record::txt (
   concat::fragment { "bind-zone-${domain}-a-${title}":
     order   => '90',
     target  => "bind-zone-${domain}",
-    content => epp('bind/record/a.epp', $record_template_params),
+    content => epp('bind/record/txt.epp', $record_template_params),
   }
 }
