@@ -1,7 +1,7 @@
 <%- |
-  String                            $record_name,
+  Bind::Record::Host                $host,
   Optional[Bind::Zone::Ttl]         $ttl = undef,
   Bind::Zone::Class                 $record_class = 'IN',
   Stdlib::IP::Address::V6::Nosubnet $ip_address
 | -%>
-<%= $record_name %> <%= $ttl %> <%= $record_class %> AAAA <%= $ip_address %>
+<%= $host %> <%= $ttl %> <%= $record_class %> AAAA <%= $ip_address %>

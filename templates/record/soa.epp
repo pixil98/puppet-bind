@@ -6,7 +6,7 @@
   Bind::Zone::Ttl           $refresh,
   Bind::Zone::Ttl           $retry,
   Bind::Zone::Ttl           $expire,
-  Bind::Zone::Ttl           $nxdomainttl,
+  Bind::Zone::Ttl           $minttl,
   Optional[Bind::Zone::Ttl] $ttl = undef,
 | -%>
 @      <%= $ttl %> <%= $record_class %> SOA <%= $name_server %>. <%= $email %>. (
@@ -14,5 +14,5 @@
     <%= $refresh %>
     <%= $retry %>
     <%= $expire %>
-    <%= $nxdomainttl %>
+    <%= $minttl %>
 )

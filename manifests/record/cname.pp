@@ -1,13 +1,13 @@
 define bind::record::cname (
   Stdlib::Fqdn              $domain,
-  String                    $record_name,
+  Stdlib::Fqdn              $host,
   Optional[Bind::Zone::Ttl] $ttl = undef,
   Bind::Zone::Class         $class = 'IN',
   Stdlib::Fqdn              $canonical_name,
 ) {
 
   $record_template_params = {
-    record_name    => $record_name,
+    host           => $host,
     ttl            => $ttl,
     record_class   => $class,
     canonical_name => $canonical_name,

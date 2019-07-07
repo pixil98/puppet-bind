@@ -1,13 +1,13 @@
 define bind::record::a (
   Stdlib::Fqdn                      $domain,
-  String                            $record_name,
+  Bind::Record::Host                $host,
   Optional[Bind::Zone::Ttl]         $ttl = undef,
   Bind::Zone::Class                 $class = 'IN',
   Stdlib::IP::Address::V4::Nosubnet $ip_address,
 ) {
 
   $record_template_params = {
-    record_name  => $record_name,
+    host         => $host,
     ttl          => $ttl,
     record_class => $class,
     ip_address   => $ip_address

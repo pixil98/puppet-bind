@@ -1,0 +1,7 @@
+<%- |
+  Bind::Record::Host        $owner_name,
+  Optional[Bind::Zone::Ttl] $ttl = undef,
+  Bind::Zone::Class         $record_class = 'IN',
+  Stdlib::Fqdn              $name_server
+| -%>
+<%= $owner_name %> <%= $ttl %> <%= $record_class %> NS <%= $name_server %>.
