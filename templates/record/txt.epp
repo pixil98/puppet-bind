@@ -4,4 +4,4 @@
   Bind::Zone::Class         $record_class = 'IN',
   String                    $value
 | -%>
-<%= $key %> <%= $ttl %> <%= $record_class %> TXT <%= $value %>
+<%= $key %> <%= $ttl %> <%= $record_class %> TXT "<%= $value %>"
