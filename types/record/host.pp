@@ -1,1 +1,1 @@
-type Bind::Record::Host = Variant[Stdlib::Fqdl, Enum['@']]
+type Bind::Record::Host = Variant[Stdlib::Fqdn, Enum['@']]
