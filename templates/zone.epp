@@ -6,7 +6,7 @@
       Optional[Array[Bind::Address_match]] $also_notify = undef,
       Optional[Stdlib::Absolutepath]       $journal = undef,
       Optional[Array[String]]              $masters = undef,
-      Optional[String]                     $notify = undef,
+      Optional[String]                     $ns_notify = undef,
       Optional[Array[String]]              $update_policy = undef
 | -%>
 zone "<%= $domain %>" <%= $zone_class %> {
@@ -38,8 +38,8 @@ zone "<%= $domain %>" <%= $zone_class %> {
         <%- } -%>
     };
     <%- } -%>
-    <%- unless $notify =~ Undef { -%>
-        notify <%= $notify %>;
+    <%- unless $ns_notify =~ Undef { -%>
+        notify <%= $ns_notify %>;
     <%- } -%>
     <%- unless $update_policy =~ Undef { -%>
     update-policy {
