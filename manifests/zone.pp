@@ -58,7 +58,7 @@ define bind::zone (
     file           => $zone_file,
     journal        => "${lookup(bind::var_dir)}/db.${domain}.jnl",
     masters        => $masters,
-    notify         => $ns_notify,
+    ns_notify         => $ns_notify,
     update_policy  => $update_policy,
   }
 
