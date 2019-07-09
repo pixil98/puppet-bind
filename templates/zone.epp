@@ -39,7 +39,7 @@ zone "<%= $domain %>" <%= $zone_class %> {
     };
     <%- } -%>
     <%- unless $ns_notify =~ Undef { -%>
-        notify <%= $ns_notify %>;
+    notify <%= $ns_notify %>;
     <%- } -%>
     <%- unless $update_policy =~ Undef { -%>
     update-policy {
