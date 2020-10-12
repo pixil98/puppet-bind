@@ -19,7 +19,7 @@ class bind::config::zones {
 
   file { "${bind::config_dir}/hosted-domains/":
     ensure  => directory,
-    owner   => 'root',
+    owner   => $bind::bind_user,
     group   => $bind::bind_group,
     mode    => '0644',
     purge   => $purge,
